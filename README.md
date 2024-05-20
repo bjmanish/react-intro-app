@@ -259,7 +259,7 @@ Now we will use our Router in our `index.js` file.
 /parentSignInAndUp
 >> Nav n Footer
 
-<!-- HOC's can add additional info/features to the existing components -->
+>> HOC's can add additional info/features to the existing components
 
 
 ## React Life Cycle Methods

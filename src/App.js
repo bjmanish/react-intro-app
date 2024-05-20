@@ -1,45 +1,30 @@
+import ClassComponent from "./pages/ClassComponent";
+import FunctionalComponent from "./pages/FunctionalComponent";
 import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import './App.css';
-import ClassComponent from './pages/claassComponents';
-import FunctionComponent from "./pages/functionComponent";
+import {Routes, Route} from "react-router-dom";
 
-// HOC Layout
-import BaseHoc from './hoc/BaseHoc';
 
-// function App() {
-//   const play = "Cricket"; 
-//   const [name, setName] = useState("Manish");
-//   return (
-//     <div className="App">
-//       <ClassComponent/>
-//       <FunctionComponent
-//       name = {name}
-//       age = {20}
-//       play = {play}
-//       setName = {setName}
-//       />
-//     </div>
-//   );
-// }
+function App() {
+  const company = "DevTown";
+  // const setNameConfig = "rk"
 
- function App() {
-
-  const play = "Cricket"; 
-  const [name, setName] = useState("Manish");
+  const [name, setName]= useState("rohan");
+  const [nameConfig, setNameConfig] = useState("defalutValue")
 
   return (
     <Routes>
-      <Route path='/' element={<BaseHoc><ClassComponent/></BaseHoc> }/> 
-      <Route path='/functional-component' element={<BaseHoc><FunctionComponent
-      name = {name}
-      age = {20}
-      play = {play}
-      setName = {setName}
-      /></BaseHoc>}/>
+      <Route path="/" element={<ClassComponent />}/>
+      <Route path="/functional-component" element={<FunctionalComponent />} />
     </Routes>
+    // <div className="App">
+    //   <header className="App-header">
+    //     <h1>Functional Component</h1>
+    //     <ClassComponent />
+    //     <FunctionalComponent name={name} age={10} company={company} setName={setName}/>
+    //     <FunctionalComponent nameConfig={nameConfig} age={10} company={company} setNameConfig={setNameConfig}/>
+    //   </header>
+    // </div>
   );
-};
-
+}
 
 export default App;

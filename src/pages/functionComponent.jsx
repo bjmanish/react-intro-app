@@ -1,27 +1,36 @@
 import React, { useState } from "react";
 
-
-function FunctionComponent(props) {
-    const [changeName, setChangeName] = useState("");
-
-    const [count,setCount] = useState(0);
-    const reduceCount = () =>{
-        setCount(count - 1)
+const FunctionalComponent = ({name, age, company, setName, setNameConfig, nameConfig}) =>{
+    const [count, setCount] = useState(0);
+    const [changeName, setChangeName] = useState("defaultName");
+    const subtract = () => {
+        setCount(count - 1);
     }
-    return(
+    // const {name, age, company, setName} = props;
+    return (
         <div>
-            <p>This is Functional components</p>
-            <button onClick={()=>setCount(count+1)}  >Click me to increment/add by 1</button>
-            <button onClick={reduceCount}  >Click me to decrement by 1</button>
-            <h2>{count}</h2>
-            
-            <h4>My name is:<strong>{props.name}</strong> age is:<strong>{props.age}</strong>and like to play:<strong>{props.play}</strong></h4>
-            <input onChange={(e)=>setChangeName(e.target.value)} />
-            <button onClick={()=>props.setName(changeName)}>click me to change name..</button>
-            {/* <button onClick={()=>props.seta}></button> */}
-        </div>
-    );
-    
+            <p> Functional Component</p>
+            <button onClick={() =>setCount(count + 1)}>Click on me to Add +1 </button>
+            <button onClick={subtract}>Click on me to Sub -1 </button>
+            <h1>{count}</h1>
+            <h1>My name is {nameConfig}, I'm {age} and I work for {company}</h1>
+            <input type="text" onChange={(e)=>setChangeName(e.target.value)}/>
+            <button onClick={()=> setNameConfig(changeName)}>Change Name</button>
+            <button onClick={()=> setNameConfig("DevTown") }>Change name to DevTown</button>
+            <button onClick={()=> setNameConfig("OpsJob") }>Change name to OpsJob</button>
+            </div>
+        // <div>
+        //     <p> Functional Component</p>
+        //     <button onClick={() =>setCount(count + 1)}>Click on me to Add +1 </button>
+        //     <button onClick={subtract}>Click on me to Sub -1 </button>
+        //     <h1>{count}</h1>
+        //     <h1>My name is {props.name}, I'm {props.age} and I work for {props.company}</h1>
+        //     <input type="text" onChange={(e)=>setChangeName(e.target.value)}/>
+        //     <button onClick={()=> props.setName(changeName)}>Change Name</button>
+        //     <button onClick={()=> props.setName("Kinnal") }>Change name to kinnal</button>
+        //     </div>
+    )
 }
 
-export default FunctionComponent;
+
+export default FunctionalComponent;

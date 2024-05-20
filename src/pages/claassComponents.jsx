@@ -1,14 +1,12 @@
-import React from 'react';
+import React from "react";
 
 class ClassComponent extends React.Component{
     render(){
         return(
-            <div className='App'>
-                <header className='App-header'>
-                    <p>This is class Components</p>
-                </header>
+            <div>
+                <h1> This is the class Compoenents </h1>
             </div>
-        );
+        )
     }
 }
 
