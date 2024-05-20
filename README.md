@@ -7,7 +7,7 @@ React JS
 -> SPA (Single Page Appln) => whole website contains a single HTML page 
 -> components => group of codes
 -> Data Binding => Uni-Directional , Flow of the data
--> Virtal DOM =>
+-> Virtual DOM =>
                                 HOME.jsx
                                    |
         |---------------------------|----------------|------------------------------|
@@ -255,7 +255,7 @@ WorkFlow wrt ur routes
 => Basic Usage
 Now we will use our Router in our `index.js` file.
 
-Layouts (HOC || High Order Component)
+# Layouts (HOC || High Order Component)
 /parentSignInAndUp
 >> Nav n Footer
 

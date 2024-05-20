@@ -18,9 +18,9 @@ function FunctionComponent(props) {
             <h4>My name is:<strong>{props.name}</strong> age is:<strong>{props.age}</strong>and like to play:<strong>{props.play}</strong></h4>
             <input onChange={(e)=>setChangeName(e.target.value)} />
             <button onClick={()=>props.setName(changeName)}>click me to change name..</button>
-            <button onClick={()=>props.seta}></button>
+            {/* <button onClick={()=>props.seta}></button> */}
         </div>
-    )
+    );
     
 }
 
