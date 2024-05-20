@@ -7,7 +7,7 @@ React JS
 -> SPA (Single Page Appln) => whole website contains a single HTML page 
 -> components => group of codes
 -> Data Binding => Uni-Directional , Flow of the data
--> Virtal DOM =>
+-> Virtual DOM =>
                                 HOME.jsx
                                    |
         |---------------------------|----------------|------------------------------|
