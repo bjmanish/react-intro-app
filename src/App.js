@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import ClassComponent from './pages/claassComponents';
+import FunctionComponent from "./pages/functionComponent";
+
+//HOC Layout
 
 function App() {
+  const play = "Cricket"; 
+  const [name, setName] = useState("Manish");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ClassComponent/>
+      <FunctionComponent
+      name = {name}
+      age = {20}
+      play = {play}
+      setName = {setName}
+      />
     </div>
   );
+ 
+ /* return (
+    <Route>
+      <Route path='/' element={<BaseHoc><ClassComponent/></BaseHoc>}/>
+      <Route path='/functional-component' element={<BaseHoc><FunctionComponent
+      name = {name}
+      age = {20}
+      play = {play}
+      setName = {setName}
+      /></BaseHoc>}/>
+    </Route>
+  );*/
 }
+
 
 export default App;

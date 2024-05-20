@@ -1,70 +1,265 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Intro
+React JS
+.js
 
-## Available Scripts
+-> SPA (Single Page Appln) => whole website contains a single HTML page 
+-> components => group of codes
+-> Data Binding => Uni-Directional , Flow of the data
+-> Virtal DOM =>
+                                HOME.jsx
+                                   |
+        |---------------------------|----------------|------------------------------|
+        |                           |                |                              |
+    bannerSection.jsx        navbar.jsx          section.jsx                     footer.jsx
+                                |->HomePage.jsx
+                                |->aboutUs.jsx
+                                |->etc..
 
-In the project directory, you can run:
+# Virtual DOM:
+   -> I updated <p> in <body> ---------> Virtual DOM ------> DOM -----> HTML Manipulations reflected on web pg
 
-### `npm start`
+# SPA:
+-> index.html
+    <html>
+        <body>
+            <div id="root">
+            </div>
+        </body>
+    </html>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Components:
+    >> Class Components (Older Version)
+    >> Function Components (Newest Edition)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Redux (State Managment):
+ ->Redux is an open source JavaScript library for managing and centralizing appln state.
 
-### `npm test`
+# Hooks (Lifecycle methods)
+->Hooks are functions that let you "hock into" React state and lifecycle features from function components.
+->it is allow you to use state and other React features without using class.
+-> Hooks -> useState(), setState()
+=> example :
+import {useState} from "react";
+const [variable, func] = useState();
+const [count, setCount] = useState();
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+const [num, setNum] = useState(5);
+num += 1;
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+btn => 
+## runnig app
+ # npx => node package execution
+-> npx create-react-app (project-name)
+ => cd project-name
+ => npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ ### Components n workflow
+ # components :
+  => Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML.
+  =>Components come in two types, Class components and Function components,
+  
+  # class components
+  ->A class component must include the `extends React.Component` statement. This statement creates an inheritance to React.Component, and gives your component access to React.Component's functions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ ->The component also requires a `render()` method, this method returns HTML.
 
-### `npm run eject`
+=> Example
+    Create a Class component called Car
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+class Car extends React.Component {
+  render() {
+    return <h2>Hi, I am a Car!</h2>;
+  }
+}
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# function components
+-> A Function component also returns HTML, and behaves much the same way as a Class component, but Function components can be written using much less code, are easier to understand.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+=> Example
+Create a Function component called Car
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+function Car() {
+  return <h2>Hi, I am a Car!</h2>;
+}
 
-## Learn More
+# The workflow for developing a React application is as follows:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Create a new React application using the create-react-app command.
+2. Create a new component for each part of your UI.
+3. Pass data and functions to components as props.
+4. Render components to the DOM using the ReactDOM.render() method.
+5. Update the state of components using the setState() method.
+6. Handle user events using event handlers.
+7. Repeat steps 3-6 until your UI is complete.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## State & Props
 
-### Code Splitting
+# state:
+-> React components has a built-in state object.
+-> The state object is where you store property values that belong to the component.
+-> When the state object changes, the component re-renders.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Creating the state Object
+     The state object is initialized in the constructor:
 
-### Analyzing the Bundle Size
+=> Example 
+ -> Specify the state object in the constructor method:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    class Car extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {brand: "Ford"};
+        }
+        render() {
+            return (
+            <div>
+                <h1>My Car</h1>
+            </div>
+            );
+        }
+    }
 
-### Making a Progressive Web App
+# Using the state Object
+Refer to the state object anywhere in the component by using the this.state.propertyname syntax:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+->Example:
+Refer to the state object in the render() method:
 
-### Advanced Configuration
+class Car extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      brand: "Ford",
+      model: "Mustang",
+      color: "red",
+      year: 1964
+    };
+  }
+  render() {
+    return (
+      <div>
+        <h1>My {this.state.brand}</h1>
+        <p>
+          It is a {this.state.color}
+          {this.state.model}
+          from {this.state.year}.
+        </p>
+      </div>
+    );
+  }
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Changing the state Object
+To change a value in the state object, use the `this.setState()` method.
 
-### Deployment
+When a value in the state object changes, the component will re-render, meaning that the output will change according to the new value(s).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+->Example:
+Add a button with an onClick event that will change the color property:
 
-### `npm run build` fails to minify
+class Car extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      brand: "Ford",
+      model: "Mustang",
+      color: "red",
+      year: 1964
+    };
+  }
+  changeColor = () => {
+    this.setState({color: "blue"});
+  }
+  render() {
+    return (
+      <div>
+        <h1>My {this.state.brand}</h1>
+        <p>
+          It is a {this.state.color}
+          {this.state.model}
+          from {this.state.year}.
+        </p>
+        <button
+          type="button"
+          onClick={this.changeColor}
+        >Change color</button>
+      </div>
+    );
+  }
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# props:
+-> Props are arguments passed into React components.
+-> Props are passed to components via HTML attributes.
+-> `props` stands for properties.
+->  Parent Node -> Child Node
+-> eg.- App.js -> ClassComponent.jsx | FunctionComponent.jsx
+
+# React Props
+-> React Props are like function arguments in JavaScript and attributes in HTML.
+-> To send props into a component, use the same syntax as HTML attributes:
+
+=> Example
+ .Add a "brand" attribute to the Car element:
+
+ > const myElement = <Car brand="Ford" />;
+
+=> The component receives the argument as a props object:
+
+=> Example
+.Use the brand attribute in the component:
+
+> function Car(props) {
+  return <h2>I am a { props.brand }!</h2>;
+}
+
+## Routing N Layouts in ReactJs
+=> Create React App does not include page routing.
+=> Ract Router is the most popular solution.
+
+=>Example :
+ Router >> Routes > Route 
+ /contact /aboutUs /signIn /signUp
+
+# Add React Router
+=>To add React Router in your application, run this in the terminal from the root directory of the application:
+
+> npm i react-router-dom
+
+WorkFlow wrt ur routes 
+>> index.js(Browser Router) >> app.js  >> diff routes
+
+## WorkFlow index.js >>  app.js >> pages
+
+//webpage
+>> /contact /aboutUs /signIn /signUp
+
+## Folder Structure
+=> To create an application with multiple page routes, let's first start with the file structure.
+
+=> Within the `src` folder, we'll create a folder named `pages` with several files:
+
+> `src\pages\`:
+
+`Layout.js`
+`Home.js`
+`Blogs.js`
+`Contact.js`
+`NoPage.js`
+
+-> Each file will contain a very basic React component.
+
+=> Basic Usage
+Now we will use our Router in our `index.js` file.
+
+Layouts (HOC || High Order Component)
+/parentSignInAndUp
+>> Nav n Footer
+
+<!-- HOC's can add additional info/features to the existing components -->
+
+
+## React Life Cycle Methods
